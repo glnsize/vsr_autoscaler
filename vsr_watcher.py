@@ -1,7 +1,8 @@
+#!/usr/bin/env python
 
 """
 * *******************************************************
-* Copyright (c) VMware, Inc. 2017. All Rights Reserved.
+* Copyright (c) VMware, Inc. 2019. All Rights Reserved.
 * SPDX-License-Identifier: MIT
 * *******************************************************
 *
@@ -20,7 +21,9 @@ import requests
 import socket
 import ipaddress
 
-class vsr_watcher:
+from vmware.vapi.vmc.client import create_vmc_client
+
+class vsr_watcher(object):
     """
     Demostrates how to automate SDDC scale as part of a VSR/SRM failover.
 
@@ -78,7 +81,7 @@ class vsr_watcher:
         self.cluster_size = int(args.cluster_size)
         self.dr_network = args.dr_network
         self.interval_sec = int(args.interval_sec)
-        
+
     def check_running_in_dr_network(self):
          # return the current ipaddress of the system that is able to reach vmc.vmware.com.
         def get_ip():
@@ -135,6 +138,7 @@ class vsr_watcher:
             num_to_add = self.cluster_size - sddc_cluster_size
             print('SCALE UP cluster {} in SDDC {} by adding {} hosts'.
                   format(self.cluster_name,sddc.name,num_to_add))
+
 def main():
     monitor = vsr_watcher()
     monitor.options()
