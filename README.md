@@ -20,18 +20,14 @@ VMware Python SDK
 1. git clone git@github.com:glnsize/vsr_autoscaller.git .
 
 ## Run one time
-1. `python3 /app/vsr_autoscaller.py --refresh-token '11670dd3-ba77-48e8-8086-b33e58b0e0cc' \
-   --org-id '194734cc-fbc1-4b72-9090-2523d8522148' --sddc-id 'abd3761a-8730-400a-95cb-f86820169f7c' \
-   --cluster-name 'Cluster-1' --cluster-size 5 -dr-network '10.72.30.0/24'`
+1. `python3 /app/vsr_autoscaller.py --refresh-token '11670dd3-ba77-48e8-8086-b33e58b0e0cc' --org-id '194734cc-fbc1-4b72-9090-2523d8522148' --sddc-id 'abd3761a-8730-400a-95cb-f86820169f7c' --cluster-name 'Cluster-1' --cluster-size 5 -dr-network '10.72.30.0/24'`
 
 ## Setup to run with secured APIKEY
 1. create secretes file to secure api key.
 `echo '11670dd3-ba77-48e8-8086-b33e58b0e0cc' > /app/refresh.token
 chmod u=r /app/refresh.token`
 2. Run cmd
-`python3 /app/vsr_autoscaller.py --refresh-token $(cat /app/refresh.token) \
-   --org-id '194734cc-fbc1-4b72-9090-2523d8522148' --sddc-id 'abd3761a-8730-400a-95cb-f86820169f7c' \
-   --cluster-name 'Cluster-1' --cluster-size 5 -dr-network '10.72.30.0/24'`
+`python3 /app/vsr_autoscaller.py --refresh-token $(cat /app/refresh.token) --org-id '194734cc-fbc1-4b72-9090-2523d8522148' --sddc-id 'abd3761a-8730-400a-95cb-f86820169f7c' --cluster-name 'Cluster-1' --cluster-size 5 -dr-network '10.72.30.0/24'`
  
  
 
